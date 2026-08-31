@@ -16,8 +16,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route khusus user yang sudah Login
 Route::middleware('auth')->group(function () {
     // Halaman Riwayat Peminjaman Saya
-    Route::get('/peminjaman', [BorrowingController::class, 'index'])->name('borrowings.index');
+    Route::get('/peminjaman', [BorrowingController::class, 'index'])->name('peminjaman.index');
     
     // Proses Pengajuan Peminjaman Alat
-    Route::post('/pinjam/{tool}', [BorrowingController::class, 'store'])->name('borrowings.store');
+    Route::post('/pinjam/{tool}', [BorrowingController::class, 'store'])->name('peminjaman.store');
 });

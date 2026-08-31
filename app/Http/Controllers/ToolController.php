@@ -10,6 +10,6 @@ class ToolController extends Controller
     public function index()
     {
         $tools = Tool::with('category')->get();
-        return view('welcome', compact('tools'));
+        return view('home', compact('tools'));
     }
 }
