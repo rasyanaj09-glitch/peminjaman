@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Tools\Schemas;
 
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -28,6 +29,16 @@ class ToolForm
                     ->label('Stok')
                     ->required()
                     ->numeric(),
+
+                FileUpload::make('image')
+                    ->label('Gambar Produk')
+                    ->image()
+                    ->disk('public')
+                    ->directory('tools')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                    ->maxSize(2048)
+                    ->nullable()
+                    ->helperText('Format: JPG, PNG, atau WebP. Maksimal 2 MB.'),
             ]);
     }
 }

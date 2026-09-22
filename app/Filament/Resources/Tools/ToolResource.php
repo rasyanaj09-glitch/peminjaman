@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class ToolResource extends Resource
 {
@@ -23,6 +24,26 @@ class ToolResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public static function canViewAny(): bool
+    {
+        return Auth::user()?->role === 'petugas';
+    }
+
+    public static function canCreate(): bool
+    {
+        return Auth::user()?->role === 'petugas';
+    }
+
+    public static function canEdit($record): bool
+    {
+        return Auth::user()?->role === 'petugas';
+    }
+
+    public static function canDelete($record): bool
+    {
+        return Auth::user()?->role === 'petugas';
+    }
 
     public static function form(Schema $schema): Schema
     {

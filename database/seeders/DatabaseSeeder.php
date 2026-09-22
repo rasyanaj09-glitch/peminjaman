@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // 1. Buat User Admin
         User::create([
             'name'     => 'Administrator Lab',
-            'email'    => 'admin@gmail.com',
+            'email'    => 'admin@123',
             'password' => Hash::make('password'),
             'role'     => 'admin',
         ]);
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         // 2. Buat User Petugas
         User::create([
             'name'     => 'Petugas Lab',
-            'email'    => 'petugas@gmail.com',
+            'email'    => 'petugas@123',
             'password' => Hash::make('password'),
             'role'     => 'petugas',
         ]);
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         // 3. Buat User Peminjam (Siswa/Mahasiswa)
         User::create([
             'name'     => 'Siswa Peminjam',
-            'email'    => 'peminjam@gmail.com',
+            'email'    => 'peminjam@123',
             'password' => Hash::make('password'),
             'role'     => 'peminjam',
         ]);

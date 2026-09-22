@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tool extends Model
 {
-   
+
     protected $fillable = [
         'category_id',
         'name',
         'stock',
+        'image',
     ];
 
     public function category()
@@ -18,7 +19,7 @@ class Tool extends Model
         return $this->belongsTo(Category::class);
     }
 
-    
+
     public function peminjamans()
     {
         return $this->hasMany(Peminjaman::class);
